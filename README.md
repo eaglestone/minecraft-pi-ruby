@@ -18,6 +18,8 @@ joy of Ruby programming!
 The Pi Edition of Minecraft needs to be running for the gem to make a connection. Then you can use Ruby 
 code such as:
 ```
+require 'minecraft-pi-ruby'
+
 Minecraft.world do
   say "Hello from Ruby!"
     
@@ -54,7 +56,8 @@ Assuming you have Ruby installed on your Raspberry Pi, open a terminal and enter
 
 If you have Sonic Pi installed then your Pi should be good to go. If not, why not? Run
 `sudo apt-get update && sudo apt-get install sonic-pi` to install Sonic Pi. This brings in a newer 
-version of Ruby than relying on the Raspian packages, and hence is an easy 
+version of Ruby than relying on the Raspian packages,
+ and hence is an easy 
 way for beginners to get off the ground with Ruby on the Pi. You also get Sonic Pi :-)
 
 ##Usage
@@ -71,7 +74,7 @@ two sets of x,y,z coordinates followed by the block ID. For example: `make_cuboi
 
 ###Block IDs
 
-Blocks can be set using and ID in the form Block::NAME. For example Block::TNT.
+Blocks can be set using an ID in the form `Block::NAME`. For example `Block::TNT`.
 
 The blocks are:
 
