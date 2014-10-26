@@ -58,7 +58,7 @@ So far, only the following commands have been implemented
 - `set_camera_mode` to either `:fixed`, `:normal` or `:follow` 
 - `set_block` takes 3 values for the x, y and z location, or a Position (`Position.new(x,y,z)`)
 - `set_blocks` is the same as `make_cuboid`. It takes 2 Positions and an ID for the block (see below), or 
-two sets of x,y,z coordinates followed by the block ID
+two sets of x,y,z coordinates followed by the block ID. For example: `make_cuboid(0,0,0,20,20,20,Block::OBSIDIAN)`.
 - `get_ground_height(x,z)` or just `ground_height(x,z)` return the height of the ground at the (x,z) location
 - `set_player_position(x,y,z)` or `set_player_position(Position)` moves the player to that position
 
