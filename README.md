@@ -2,7 +2,7 @@
 
 ##Please note
 This project is still in the early stages of development. It is not ready for use
-with students and has not yet been pushed to RubyGems.
+with students as there is still much to do!
 
 ##Overview
 
@@ -48,13 +48,13 @@ mc.say 'Now go and click on the TNT!'
 ```
 ##Installation
 
-Assuming you have Ruby installed on your Raspberry Pi, just enter:
+Assuming you have Ruby installed on your Raspberry Pi, open a terminal and enter:
 
 `sudo gem install minecraft-pi-ruby` 
 
 If you have Sonic Pi installed then your Pi should be good to go. If not, why not? Run
 `sudo apt-get update && sudo apt-get install sonic-pi` to install Sonic Pi. This brings in a newer 
-version on Ruby than relying on the Raspian packages and hence is an easy 
+version of Ruby than relying on the Raspian packages, and hence is an easy 
 way for beginners to get off the ground with Ruby on the Pi. You also get Sonic Pi :-)
 
 ##Usage
