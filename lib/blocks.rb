@@ -1,4 +1,4 @@
-module BlockCode
+module Block
   AIR                 = 0
   STONE               = 1
   GRASS               = 2

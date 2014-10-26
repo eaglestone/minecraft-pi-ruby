@@ -3,7 +3,7 @@ require_relative 'position'
 require_relative 'blocks'
 
 class Minecraft
-  include BlockCode
+  include Block
   
   def initialize(connection = nil)
     @connection = connection
