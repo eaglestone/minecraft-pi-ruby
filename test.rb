@@ -9,7 +9,7 @@ Minecraft.world do
   
   position1 = Position.new(0,10,0)
   position2 = Position.new(10,20,10)
-  make_cuboid(position1, position2, 1)
+  make_cuboid(position1, position2, BlockCode::DIAMOND_BLOCK)
   
   say "Bye from Ruby!"  
 end
