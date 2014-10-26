@@ -65,9 +65,10 @@ class Minecraft
   alias_method :make_cuboid, :set_blocks
   
   def get_ground_height(x,z)
-    @connection.send_command "world.getHeight(#{x},#{z})"
-    return @connection.gets
+    return  @connection.send_with_response "world.getHeight(#{x},#{z})"
+    #return s
   end
+  alias_method :ground_height, :get_ground_height
   
 end
     

@@ -19,10 +19,11 @@ class Connection
     end
   end
   
-  def gets
-    result = @socket.gets if @socket
-    return result
+  def send_with_response(command)
+    send_command command
+    return @socket.gets.chomp
   end
+  
   
   def Connection.finalize(id)
     @socket.close if @socket

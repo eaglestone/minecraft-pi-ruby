@@ -54,8 +54,7 @@ describe Minecraft do
   end
   
   it "gets the ground level" do
-    @conn.expect :send_command, :return_value, ['world.getHeight(4,5)']
-    @conn.expect :gets, 1
+    @conn.expect :send_with_response, 10, ['world.getHeight(4,5)']
     height = @mc.get_ground_height(4,5)
     assert @conn.verify
     height.must_be_kind_of(Numeric)
