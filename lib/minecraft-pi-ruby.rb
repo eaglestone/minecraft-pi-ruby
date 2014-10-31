@@ -30,36 +30,12 @@ class Minecraft
   end
   
   def set_block(*args)
-    command = "world.setBlock("
-    case args.length
-    when 2
-      command = command + "#{args[0]},#{args[1]})"
-    when 3
-      command += "#{args[0]},#{args[1]},#{args[2]})"
-    when 4
-      command += "#{args[0]},#{args[1]},#{args[2]},#{args[3]})"
-    when 5
-      command += "#{args[0]},#{args[1]},#{args[2]},#{args[3]},#{args[4]})"
-    else
-      return
-    end
+    command = "world.setBlocks(" + make_command_from_args(args)
     @connection.send_command command
   end
   
   def set_blocks(*args)
-    command = "world.setBlocks("
-    case args.length
-    when 3
-      command += "#{args[0]},#{args[1]},#{args[2]})"
-    when 4
-      command += "#{args[0]},#{args[1]},#{args[2]},#{args[3]})"
-    when 7
-      command += "#{args[0]},#{args[1]},#{args[2]},#{args[3]},#{args[4]},#{args[5]},#{args[6]})"
-    when 8
-      command += "#{args[0]},#{args[1]},#{args[2]},#{args[3]},#{args[4]},#{args[5]},#{args[6]},#{args[7]})"
-    else
-      return
-    end
+    command = "world.setBlocks(" + make_command_from_args(args)
     @connection.send_command command
   end
   alias_method :make_cuboid, :set_blocks
@@ -83,5 +59,13 @@ class Minecraft
     @connection.send_command command
   end
   
+  private
+  def make_command_from_args(args)
+    string = ""
+    args.length.times do |i|
+      string += "#{args[i]},"
+    end
+    return string[0..-2]
+  end
 end
     
