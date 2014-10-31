@@ -43,7 +43,6 @@ class Minecraft
   
   def get_ground_height(x,z)
     return  @connection.send_with_response "world.getHeight(#{x},#{z})"
-    #return s
   end
   alias_method :ground_height, :get_ground_height
   
