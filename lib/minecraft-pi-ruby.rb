@@ -17,6 +17,7 @@ class Minecraft
     end
     
     alias_method :world, :control
+    alias_method :player, :control
   end
   
   def say(message)
@@ -58,6 +59,12 @@ class Minecraft
     end
     @connection.send_command command
   end
+  alias_method :set_position, :set_player_position
+  
+  def get_player_position
+    puts @connection.send_with_response('player.getPos()')
+  end
+  alias_method :get_position, :get_player_position
   
   private
   def make_command_from_args(args)
