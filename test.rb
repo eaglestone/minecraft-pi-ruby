@@ -14,6 +14,6 @@ pos = mc.get_position
   sleep 0.5
 end
 
-mc.set_player_position(Position.new(28,18,28))
+mc.set_player_position(Position.new(29,18,28))
 mc.make_cuboid(16,18,16,20,20,20,Block::TNT,1)
 mc.say 'Now go and click on the TNT!'
