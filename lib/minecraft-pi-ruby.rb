@@ -63,7 +63,7 @@ class Minecraft
   def get_player_position
     pos = @connection.send_with_response('player.getPos()')
     if pos && pos != "Fail"
-      foo = pos.split(/,/)
+    #  foo = pos.split(/,/)
       return Position.new(pos[0].to_i,pos[1].to_i,pos[2].to_i)
     else
       return nil
@@ -71,6 +71,17 @@ class Minecraft
   end
 
   alias_method :get_position, :get_player_position
+
+  def build_wall(args)
+    puts "building a wall"
+    height = 1
+    start_position = args[:position] if args[:position]
+    length = args[:length] if args[:length]
+    direction = args[:direction] if args[:direction]
+    height = args[:height] if args[:height]
+    start_position = args[:start] if args[:start]
+    end_position = args[:end] if args[:end]
+  end
 
   private
   def make_command_from_args(args)
