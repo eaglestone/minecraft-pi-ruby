@@ -21,7 +21,9 @@ class Connection
   
   def send_with_response(command)
     send_command command
-    return @socket.gets.chomp
+    retVal = @socket.gets.chomp
+    puts "Send with response: " + retVal
+    return retVal
   end
   
   
