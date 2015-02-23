@@ -2,10 +2,17 @@ class Position
 
   attr_accessor :x, :y, :z
   
-  def initialize (x,y,z)
-    @x=x
-    @y=y
-    @z=z
+  def initialize (x,y = nil,z = nil)
+    @x=x if x.is_a? Integer
+    @y=y if y
+    @z=z if z
+    
+    if x.is_a? String
+		values = x.split(',')
+		@x = values[0].to_i
+		@y = values[1].to_i
+		@z = values[2].to_i
+    end
   end
 
   def to_s

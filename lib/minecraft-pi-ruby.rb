@@ -61,34 +61,35 @@ class Minecraft
   alias_method :set_position, :set_player_position
 
   def get_player_position
-    pos = @connection.send_with_response('player.getPos()')
-    if pos && pos != "Fail"
-      return Position.new(pos[0].to_i,pos[1].to_i,pos[2].to_i)
-    else
-      return nil
-    end
+	reply ="Fail"
+	while reply == "Fail"
+		reply = @connection.send_with_response('player.getPos()')
+	end
+	pos = Position.new(reply)
+    return pos
+  
   end
 
   alias_method :get_position, :get_player_position
 
   def build_wall(args)
-    puts "building a wall"
     height = 1
+    height = args[:height] if args[:height]
     start_position = get_player_position
-    #start_position = args[:position] if args[:position]
+    start_position = args[:start_at] if args[:start_at]
     length = args[:length] if args[:length]
     direction = args[:direction] if args[:direction]
     height = args[:height] if args[:height]
-    #start_position = args[:start] if args[:start]
     end_position = args[:end] if args[:end]
     length = args[:height] if args[:height]
     width = args[:width] if args[:width]
     length ||= 10
     width ||= 1
-    end_position = Position.new(0,20,0) + start_position
-    puts "Start pos = " + start_position.to_s
-    puts "End pos = " + end_position.to_s
-    set_blocks(start_position, end_position, Block::BRICK_BLOCK)
+    end_position = Position.new(20, height - 1, 0) + start_position
+    #height.times do 
+	  #end_position = Position.new(20,1,0) + start_position
+      set_blocks(start_position, end_position, Block::BRICK_BLOCK)
+    #end
   end
 
   private
