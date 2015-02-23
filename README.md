@@ -11,7 +11,7 @@ The aim is that the syntax is clear for fledgling coders to read and
 understand as they work towards creating their own scripts.
 
 All the fun of Minecraft Pi Edition and all the goodness of Ruby! With Sonic Pi, 
-KidsRuby and Minecraft, there really is no reason not to show you students the 
+KidsRuby and now Minecraft, there really is no reason not to show you students the 
 joy of Ruby programming!
 
 ##Introduction
@@ -50,15 +50,16 @@ mc.say 'Now go and click on the TNT!'
 ```
 ##Installation
 
-Assuming you have Ruby installed on your Raspberry Pi, open a terminal and enter:
+Assuming you have Ruby installed on your Raspberry Pi (Raspbian now comes with Ruby 
+installed as it's needed for Sonic Pi), open a terminal and enter:
 
 `sudo gem install minecraft-pi-ruby` 
 
-If you have Sonic Pi installed then your Pi should be good to go. If not, why not? Run
-`sudo apt-get update && sudo apt-get install sonic-pi` to install Sonic Pi. This brings in a newer 
-version of Ruby than relying on the Raspian packages,
- and hence is an easy 
-way for beginners to get off the ground with Ruby on the Pi. You also get Sonic Pi :-)
+As ever, ensure you have the latest packages on your system. 
+
+So, if you have Sonic Pi installed then your Pi should be good to go. If not, why not? Open a terminal and enter
+`sudo apt-get update && sudo apt-get install sonic-pi` to install Sonic Pi and Ruby with it. You now have two reasons 
+for learning Ruby!
 
 ##Usage
 
@@ -67,7 +68,7 @@ So far, only the following commands have been implemented
 - `say "message"` to display a message on the screen
 - `set_camera_mode` to either `:fixed`, `:normal` or `:follow` 
 - `set_block` takes 3 values for the x, y and z location, or a Position (`Position.new(x,y,z)`)
-- `set_blocks` is the same as `make_cuboid`. It takes 2 Positions and an ID for the block (see below), or 
+- `set_blocks` is the same as `make_cuboid`. They take two positions and an ID for the block (see below), or 
 two sets of x,y,z coordinates followed by the block ID. For example: `make_cuboid(0,0,0,20,20,20,Block::OBSIDIAN)`.
 - `get_ground_height(x,z)` or just `ground_height(x,z)` return the height of the ground at the (x,z) location
 - `set_player_position(x,y,z)` or `set_player_position(Position)` moves the player to that position
