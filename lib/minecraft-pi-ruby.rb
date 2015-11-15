@@ -41,6 +41,10 @@ class Minecraft
   end
   alias_method :make_cuboid, :set_blocks
 
+  def get_block(x, y, z)
+    return  @connection.send_with_response "world.getBlock(#{x},#{y},#{z})"
+  end
+
   def get_ground_height(x,z)
     return  @connection.send_with_response "world.getHeight(#{x},#{z})"
   end
@@ -61,11 +65,11 @@ class Minecraft
   alias_method :set_position, :set_player_position
 
   def get_player_position
-	reply ="Fail"
-	while reply == "Fail"
-		reply = @connection.send_with_response('player.getPos()')
-	end
-	pos = Position.new(reply)
+    reply ="Fail"
+    while reply == "Fail"
+      reply = @connection.send_with_response('player.getPos()')
+    end
+    pos = Position.new(reply)
     return pos
 
   end
@@ -87,7 +91,7 @@ class Minecraft
     width ||= 1
     end_position = Position.new(20, height - 1, 0) + start_position
     #height.times do
-	  #end_position = Position.new(20,1,0) + start_position
+      #end_position = Position.new(20,1,0) + start_position
       set_blocks(start_position, end_position, Block::BRICK_BLOCK)
     #end
   end
