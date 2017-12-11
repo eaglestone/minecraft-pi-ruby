@@ -29,16 +29,28 @@ class Position
   alias == eql?
   
   def +(position)
-    @x += position.x
-    @y += position.y
-    @z += position.z
+    if position.is_a?(Numeric)
+      @x += position
+      @y += position
+      @z += position
+    elsif position.is_a?(Position)
+      @x += position.x
+      @y += position.y
+      @z += position.z
+    end
     self
   end
   
   def -(position)
-    @x -= position.x
-    @y -= position.y
-    @z -= position.z
+    if position.is_a?(Numeric)
+      @x -= position
+      @y -= position
+      @z -= position
+    elsif position.is_a?(Position)
+      @x -= position.x
+      @y -= position.y
+      @z -= position.z
+    end
     self
   end
 
