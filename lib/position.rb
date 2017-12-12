@@ -68,4 +68,10 @@ class Position
     self
   end
 
+  def move(x: 0, y: 0, z: 0)
+    @x += x
+    @y += y
+    @z += z
+    self
+  end
 end
